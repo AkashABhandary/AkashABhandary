@@ -1,4 +1,4 @@
-
+#code by AkashABhandary
 ar = list(input("Enter the number"))
 #input should be something like this "3*2/2+5" in anyorder but single digit
 n= len(ar)
