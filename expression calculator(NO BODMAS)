@@ -1,0 +1,30 @@
+
+ar = list(input("Enter the number"))
+#input should be something like this "3*2/2+5" in anyorder but single digit
+n= len(ar)
+d=[]    #list to store the ONLY the digits, becasue python take "3*2" as string and i can't do arthmatic opration on string we need it be int.
+sr=[0]  #to store the result 
+i=0     #works like a pointer pointing numbers in list d
+
+for x in range(n):
+    if ar[x].isdigit():
+        d.append(int(ar[x]))      #adding all the number in d
+for x in range(n):
+    if ar[x] == '/':
+        sr=(d[i]/d[i+1])          #taking numbers in d 1 by 1 and performing the operation given in the input
+        i+=1                      #pointing to next number 
+        d[i]=sr                   #storing the result back in list d, so we can continue total calculation 
+    if ar[x] == '+':
+        sr=(d[i]+d[i+1])
+        i+=1
+        d[i]=sr
+    if ar[x] == '*':
+        sr=(d[i]*d[i+1])
+        i+=1
+        d[i]=sr
+    if ar[x] == '-':
+        sr=(d[i]-d[i+1])
+        i+=1
+        d[i]=sr
+       
+print(d,sr)
