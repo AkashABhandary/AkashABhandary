@@ -1,0 +1,84 @@
+import random
+x=random.randint(5,15)
+
+#y have will the opperands you want to perform it can be only +-*or/
+#x will have the results you want after performing and "o" is our list of numbers 
+
+m=["+","-","/","*"]
+z=random.randint(0,3)
+y=m[z]
+#x=int("8")
+#y="+"
+print("x= ",x,"y= ",y)
+o=[3,4,5,8,2,3,0]
+def probs(o,x,y):
+    r=[]
+    gr=[]
+    ur=[]
+    n=len(o)
+    print(n,x," list= ",o)
+    count=0
+    if y =="+":
+        for i in range(n):
+            for j in range(n):
+                if x==o[i]+o[j] and i!=j:
+                    r.append(o[i])
+                    r.append(o[j])
+                else:
+                    continue  
+        for i in r:
+            if i not in ur:
+                ur.append(i)
+        for i in range(2,len(ur)+1,2):
+            gr.append(ur[count:i])
+            count=i
+        print("addition",ur,gr)
+    if y =="*":
+        for i in range(n):
+            for j in range(n):
+                if x==o[i]*o[j] and i!=j:
+                    r.append(o[i])
+                    r.append(o[j])
+                else:
+                    continue  
+        for i in r:
+            if i not in ur:
+                ur.append(i)
+        for i in range(2,len(ur)+1,2):
+            gr.append(ur[count:i])
+            count=i
+        print("Mul ",ur,gr)
+    if y =="-":
+        for i in range(n):
+            for j in range(n):
+                if x==o[i]-o[j] and i!=j:
+                    r.append(o[i])
+                    r.append(o[j])
+                else:
+                    continue  
+        for i in r:
+            if i not in ur:
+                ur.append(i)
+        for i in range(2,len(ur)+1,2):
+            gr.append(ur[count:i])
+            count=i
+        print("Minus= ",ur,gr)
+    if y =="/":
+        for i in range(n):
+            for j in range(n):
+                if o[i] or o[j]!=0 and x==o[i]/o[j] and i!=j:
+                    r.append(o[i])
+                    r.append(o[j])
+                else:
+                    continue  
+        for i in r:
+            if i not in ur:
+                ur.append(i)
+        for i in range(2,len(ur)+1,2):
+            gr.append(ur[count:i])
+            count=i
+        
+        print("Div= ",ur,gr)
+    
+
+re=probs(o,x,y)
